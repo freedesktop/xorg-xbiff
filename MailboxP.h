@@ -28,7 +28,7 @@ other dealings in this Software without prior written authorization
 from the X Consortium.
 
 */
-/* $XFree86: xc/programs/xbiff/MailboxP.h,v 1.2 2001/04/19 19:54:51 dawes Exp $ */
+/* $XFree86$ */
 
 #ifndef _XawMailboxP_h
 #define _XawMailboxP_h
