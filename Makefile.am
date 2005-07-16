@@ -21,7 +21,7 @@
 
 bin_PROGRAMS = xbiff
 
-xbiff_CFLAGS = $(DEP_CFLAGS)
+xbiff_CFLAGS = $(DEP_CFLAGS) -D_BSD_SOURCE
 xbiff_LDADD = $(DEP_LIBS)
 
 xbiff_SOURCES =	\
