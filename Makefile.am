@@ -21,8 +21,8 @@
 
 bin_PROGRAMS = xbiff
 
-xbiff_CFLAGS = $(DEP_CFLAGS) -D_BSD_SOURCE
-xbiff_LDADD = $(DEP_LIBS)
+xbiff_CFLAGS = $(XBIFF_CFLAGS) -D_BSD_SOURCE
+xbiff_LDADD = $(XBIFF_LIBS)
 
 xbiff_SOURCES =	\
         Mailbox.c \
