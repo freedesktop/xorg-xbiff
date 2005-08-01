@@ -30,7 +30,7 @@ xbiff_SOURCES =	\
         MailboxP.h \
         xbiff.c
 
-dist_man_MANS = \
+dist_man1_MANS = \
         xbiff.man
 
 EXTRA_DIST = bitmaps/mail-down bitmaps/mail-up bitmaps/mail-down-mask bitmaps/mail-up-mask
