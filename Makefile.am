@@ -21,7 +21,7 @@
 
 bin_PROGRAMS = xbiff
 
-xbiff_CFLAGS = $(XBIFF_CFLAGS) -D_BSD_SOURCE
+AM_CFLAGS = $(CWARNFLAGS) $(XBIFF_CFLAGS) -D_BSD_SOURCE
 xbiff_LDADD = $(XBIFF_LIBS)
 
 xbiff_SOURCES =	\
@@ -64,7 +64,7 @@ MAN_SUBSTS = \
 SUFFIXES = .$(APP_MAN_SUFFIX) .man
 
 .man.$(APP_MAN_SUFFIX):
-	sed $(MAN_SUBSTS) < $< > $@
+	$(AM_V_GEN)$(SED) $(MAN_SUBSTS) < $< > $@
 
 EXTRA_DIST += ChangeLog
 MAINTAINERCLEANFILES = ChangeLog

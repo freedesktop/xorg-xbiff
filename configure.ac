@@ -26,27 +26,21 @@ AC_INIT(xbiff,[1.0.1], [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg]
 AM_INIT_AUTOMAKE([dist-bzip2])
 AM_MAINTAINER_MODE
 
-# Require xorg-macros: XORG_CWARNFLAGS, XORG_CHANGELOG
-m4_ifndef([XORG_MACROS_VERSION], [AC_FATAL([must install xorg-macros 1.2 or later before running autoconf/autogen])])
-XORG_MACROS_VERSION(1.2)
+# Require xorg-macros 1.3 or later: XORG_DEFAULT_OPTIONS
+m4_ifndef([XORG_MACROS_VERSION],
+	  [m4_fatal([must install xorg-macros 1.3 or later before running autoconf/autogen])])
+XORG_MACROS_VERSION(1.3)
 
 AM_CONFIG_HEADER(config.h)
 
 AC_PROG_CC
 AC_PROG_INSTALL
-XORG_CWARNFLAGS
 
-PKG_CHECK_MODULES(XAW, xaw7)
-PKG_CHECK_MODULES(XBIFF, xbitmaps xext)
+XORG_DEFAULT_OPTIONS
 
-XBIFF_CFLAGS="$CWARNFLAGS $XBIFF_CFLAGS $XAW_CFLAGS"
-XBIFF_LIBS="$XBIFF_LIBS $XAW_LIBS"
+PKG_CHECK_MODULES(XBIFF, xaw7 xbitmaps xext)
 
 AC_SUBST(XBIFF_CFLAGS)
 AC_SUBST(XBIFF_LIBS)
-
-XORG_MANPAGE_SECTIONS
-XORG_RELEASE_VERSION
-XORG_CHANGELOG
 
 AC_OUTPUT([Makefile])
