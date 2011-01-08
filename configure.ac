@@ -41,4 +41,7 @@ XORG_DEFAULT_OPTIONS
 # Checks for pkg-config packages
 PKG_CHECK_MODULES(XBIFF, xaw7 xmu xbitmaps xext x11)
 
+# Checks for headers
+AC_CHECK_HEADERS([paths.h])
+
 AC_OUTPUT([Makefile])
