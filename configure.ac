@@ -44,4 +44,19 @@ PKG_CHECK_MODULES(XBIFF, xaw7 xmu xbitmaps xext x11)
 # Checks for headers
 AC_CHECK_HEADERS([paths.h])
 
+# Allow builder to set path to look for mailboxes
+AC_MSG_CHECKING([for mailbox directory])
+AC_ARG_WITH([mailbox-directory],
+            [AS_HELP_STRING([--with-mailbox-directory=PATH],
+              [specify directory to check for system mailboxes])],
+            [mailbox_directory=$with_mailbox_directory])
+
+if test "x$mailbox_directory" != "x"; then
+   AC_DEFINE_UNQUOTED([MAILBOX_DIRECTORY], ["$mailbox_directory"],
+                      [Directory containing user mailboxes])
+   AC_MSG_RESULT([$mailbox_directory])
+else
+   AC_MSG_RESULT([not set])
+fi
+
 AC_OUTPUT([Makefile])
