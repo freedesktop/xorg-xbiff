@@ -116,7 +116,7 @@ classes as well as:
 .B checkCommand (\fPclass\fB CheckCommand)
 Specifies a shell command to be executed to check for new mail rather than
 examining the size of \fBfile\fP.  The specified string value is used as the
-argument to a \fIsystem\fP(3) call and may therefore contain i/o redirection.
+argument to a \fIsystem\fP(__libmansuffix__) call and may therefore contain i/o redirection.
 An exit status of 0 indicates that new mail is waiting, 1 indicates that there
 has been no change in size, and 2 indicates that the mail has been cleared.
 By default, no shell command is provided.
@@ -206,7 +206,7 @@ to get the name of a resource file that overrides the global resources
 stored in the RESOURCE_MANAGER property.
 .SH "SEE ALSO"
 X(__miscmansuffix__),
-xrdb(1),
+xrdb(__appmansuffix__),
 stat(2)
 .SH BUGS
 The mailbox bitmaps are ugly.
