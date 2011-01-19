@@ -19,6 +19,7 @@
 #  TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 #  PERFORMANCE OF THIS SOFTWARE.
 
+SUBDIRS = man
 bin_PROGRAMS = xbiff
 
 AM_CFLAGS = $(CWARNFLAGS) $(XBIFF_CFLAGS) -D_BSD_SOURCE
@@ -30,25 +31,9 @@ xbiff_SOURCES =	\
         MailboxP.h \
         xbiff.c
 
-appman_PRE = \
-        xbiff.man
-
 EXTRA_DIST = bitmaps/mail-down bitmaps/mail-up bitmaps/mail-down-mask bitmaps/mail-up-mask
 
-appmandir = $(APP_MAN_DIR)
-
-appman_DATA = $(appman_PRE:man=@APP_MAN_SUFFIX@)
-
-EXTRA_DIST += $(appman_PRE)
 MAINTAINERCLEANFILES = ChangeLog INSTALL
-CLEANFILES = $(appman_DATA)
-
-SUFFIXES = .$(APP_MAN_SUFFIX) .man
-
-# String replacements in MAN_SUBSTS now come from xorg-macros.m4 via configure
-.man.$(APP_MAN_SUFFIX):
-	$(AM_V_GEN)$(SED) $(MAN_SUBSTS) < $< > $@
-
 
 .PHONY: ChangeLog INSTALL
 

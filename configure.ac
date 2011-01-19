@@ -59,4 +59,7 @@ else
    AC_MSG_RESULT([not set])
 fi
 
-AC_OUTPUT([Makefile])
+AC_CONFIG_FILES([
+	Makefile
+	man/Makefile])
+AC_OUTPUT
